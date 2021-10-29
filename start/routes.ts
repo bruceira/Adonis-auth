@@ -1,4 +1,3 @@
-import { user } from 'App/Models/user';
 
 
 /*
@@ -22,6 +21,9 @@ import { user } from 'App/Models/user';
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import user from 'App/Models/user'
+import UserValidator from 'App/Validators/UserValidator';
+
 
 Route.get('/', async ({ view }) => {
   return view.render('welcome')
@@ -34,7 +36,7 @@ Route.get('/signUp', async ({ view }) => {
 
 Route.post("/signUp",async ({ request,response })=>{
 
-  const payload = request.body
+  const payload = await request.validate(UserValidator)
 
   await user.create(payload)
 
@@ -43,3 +45,16 @@ Route.post("/signUp",async ({ request,response })=>{
 })
 
 Route.on("/login").render("login")
+
+Route.post("/login",async ({ request,response ,auth })=>{
+
+
+const {email,password} = request.all()
+
+
+await auth.attempt(email,password)
+
+
+  response.redirect().back()
+
+})

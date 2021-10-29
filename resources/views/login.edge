@@ -3,20 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SignUp</title>
+  <title>Login</title>
     @entryPointStyles('app')
   @entryPointScripts('app')
   
 </head>
 <body>
 
-  <h1>SignUp</h1>
+
+
+  <h1>Login</h1>
+
+
+  @if(auth.user)
+
+  <p> auth as in {{auth.user.email}}</p>
+
+
+  @endif
 
   <form method="POST" action="/login">
+
     <input name="email" type="email"/>
     <input name="password" type="password"/>
+
     <button>SignUp</button>
+
   </form>
   </main>
+
+  {{inspect(flashMessages)}}
 </body>
 </html>

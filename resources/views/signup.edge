@@ -13,10 +13,15 @@
   <h1>SignUp</h1>
 
   <form method="POST" action="/signUp">
+
     <input name="email" type="email"/>
     <input name="password" type="password"/>
+
     <button>SignUp</button>
+
   </form>
   </main>
+
+  {{inspect(flashMessages)}}
 </body>
 </html>
