@@ -32,7 +32,7 @@ Route.get('/signUp', async ({ view }) => {
   return view.render('signup')
 })
 
-Route.post("/signUp",async ({ request,response})=>{
+Route.post("/signUp",async ({ request,response })=>{
 
   const payload = request.body
 
