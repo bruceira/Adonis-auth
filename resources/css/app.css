@@ -47,6 +47,8 @@ p {
 main ul {
   list-style: none;
   display: flex;
+  margin-left: 1.6em;
+  padding: 1em 0;
 }
 
 main li {
@@ -60,4 +62,41 @@ main li {
 main code {
   font-size: 16px;
   background: #e6e2ff;
+}
+
+
+.form{
+
+  background-color: #fff;
+  display:block;
+}
+
+.form_box{
+  margin-top: 1em;
+  width: 300px;
+  height: 300px;
+
+  display: inline-block;
+}
+
+
+.box{
+
+  text-align: center;
+  width: 450px;
+  margin:3em auto;
+  border: 1px solid gray;
+}
+
+input{
+  padding: 20px 50px;
+  margin: 10px 0;
+}
+
+
+.btn{
+  padding: 10px 50px;
+  color: gray;
+  font-size: 20px;
+  margin-top: 1em;
 }

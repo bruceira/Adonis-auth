@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Auth_Login</title>
     @entryPointStyles('app')
   @entryPointScripts('app')
   
@@ -11,27 +11,34 @@
 <body>
 
 
+<div class="box">
+  
+  <h1 class="title_h1">Login</h1>
 
-  <h1>Login</h1>
-
-
+   <div class="content_div">
+     
   @if(auth.user)
 
-  <p> auth as in {{auth.user.email}}</p>
+  <p> auth : {{auth.user.email}}</p>
 
 
   @endif
 
-  <form method="POST" action="/login">
-
-    <input name="email" type="email"/>
-    <input name="password" type="password"/>
-
-    <button>SignUp</button>
+  <form method="POST" action="/login" class="form">
+      <div class="form_box">
+        
+          <input name="email" type="email" placeholder="Email"/>
+          <input name="password" type="password" placeholder="Password"/><br/>
+          <button class="btn">Login</button>
+      </div>
 
   </form>
-  </main>
+   </div>
+ 
+</div>
 
-  {{inspect(flashMessages)}}
+{{inspect(flashMessages)}}
+
+  
 </body>
 </html>

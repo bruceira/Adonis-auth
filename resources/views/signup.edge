@@ -3,24 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SignUp</title>
+  <title>Auth_SignUp</title>
     @entryPointStyles('app')
   @entryPointScripts('app')
   
 </head>
 <body>
 
-  <h1>SignUp</h1>
 
-  <form method="POST" action="/signUp">
+<div class="box">
+  
+  <h1 class="title_h1">SignUp</h1>
 
-    <input name="email" type="email"/>
-    <input name="password" type="password"/>
+   <div class="content_div">
+     
+  
 
-    <button>SignUp</button>
+  <form method="POST" action="/signUp" class="form">
+<div class="form_box">
+  
+    <input name="email" type="email" placeholder="Email"/>
+    <input name="password" type="password" placeholder="Password"/><br/>
+    <button class="btn">SignUp</button>
+</div>
 
   </form>
-  </main>
+   </div>
+ 
+</div>
 
   {{inspect(flashMessages)}}
 </body>
