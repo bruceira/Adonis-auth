@@ -21,8 +21,7 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-import user from 'App/Models/user'
-import UserValidator from 'App/Validators/UserValidator';
+
 
 
 Route.get('/', async ({ view }) => {
@@ -30,31 +29,37 @@ Route.get('/', async ({ view }) => {
 })
 
 
-Route.get('/signUp', async ({ view }) => {
-  return view.render('signup')
-})
+Route.get('/signUp', "PagesController.signup")
 
-Route.post("/signUp",async ({ request,response })=>{
-
-  const payload = await request.validate(UserValidator)
-
-  await user.create(payload)
-
-  response.redirect().back()
-
-})
-
-Route.on("/login").render("login")
-
-Route.post("/login",async ({ request,response ,auth })=>{
+Route.get("/login","PagesController.login")
 
 
-const {email,password} = request.all()
+
+Route.post("/signUp","PagesController.authSignup")
+Route.post("/login" ,"PagesController.authLogin")
 
 
-await auth.attempt(email,password)
+
+// Route.post("/signUp",async ({ request,response })=>{
+
+//   const payload = await request.validate(UserValidator)
+
+//   await user.create(payload)
+
+//   response.redirect().back()
+
+// })
 
 
-  response.redirect().back()
+// Route.post("/login",async ({ request,response ,auth })=>{
 
-})
+
+// const {email,password} = request.all()
+
+
+// await auth.attempt(email,password)
+
+
+//   response.redirect().back()
+
+// })
